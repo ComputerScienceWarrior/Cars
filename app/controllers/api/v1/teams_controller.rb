@@ -2,20 +2,21 @@ module Api
     module V1
         class TeamsController < ApplicationController
             protect_from_forgery with: :null_session
-            before_action :find_team, to: [:show, :update, :destroy]
 
             def index
                 @teams = Team.all
-                render json: @teams, inlcude: :cars
+                render json: @teams, include: :cars
             end
 
             def show
+                @team = Team.find(params[:id])
                 render json: @team, include: :cars
             end
 
             def create
-                if @team.save(team_params)
-                    render json: @team, inlcude: :cars
+                @team = Team.new(team_params)
+                if @team.save
+                    render json: @team
                 else
                     render json: { error: @team.errors.messages }, status: 422
                 end
@@ -41,10 +42,6 @@ module Api
 
             def team_params
                 params.require(:team).permit(:name, :total_wins, :trophies, cars_attributes: [:name, :wins, :losses, :attack_power, :rank, :speed, :level])
-            end
-
-            def find_team
-                @team = Team.find(params[:id])
             end
         end
     end
