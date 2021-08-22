@@ -5,16 +5,16 @@ module Api
 
             def index
                 @teams = Team.all
-                render json: @teams
+                render json: @teams, inlcude: :cars
             end
 
             def show
-                render json: @team
+                render json: @team, include: :cars
             end
 
             def create
                 if @team.save(team_params)
-                    render json: @team
+                    render json: @team, inlcude: :cars
                 else
                     render json: { error: @team.errors.messages }, status: 422
                 end
@@ -22,7 +22,7 @@ module Api
 
             def update
                 if @team.update(team_params)
-                    render json: @team
+                    render json: @team, include: :cars
                 else
                     render json: { error: @course.errors.messages }, status: 422
                 end
