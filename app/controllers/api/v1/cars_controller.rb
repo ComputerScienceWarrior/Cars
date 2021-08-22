@@ -2,7 +2,6 @@ module Api
     module V1
         class CarsController < ApplicationController
             protect_from_forgery with: :null_session
-            before_action :find_car, to: [:show, :update, :destroy]
 
             def index
                 @cars = Car.all
@@ -10,6 +9,7 @@ module Api
             end
 
             def show
+                @car = Car.find(params[:id])
                 render json: @car
             end
 
@@ -41,10 +41,6 @@ module Api
 
             def car_params
                 params.require(:car).permit(:name, :wins, :losses, :attack_power, :speed, :level, :rank, :team_id)
-            end
-
-            def find_car
-                @car = Car.find(params[:id])
             end
         end
     end
