@@ -33,7 +33,7 @@ module Api
             def destroy
                 @car = Car.find(params[:id])
                 if @car.destroy
-                    head: :no_content
+                    head :no_content
                 else
                     render json: { error: @car.errors.messages }, status: 422
                 end
