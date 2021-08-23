@@ -23,6 +23,7 @@ module Api
             end
 
             def update
+                @team = Team.find(params[:id])
                 if @team.update(team_params)
                     render json: @team, include: :cars
                 else
@@ -31,6 +32,7 @@ module Api
             end
 
             def destroy
+                @team = Team.find(params[:id])
                 if @team.destroy
                     head :no_content
                 else
