@@ -14,7 +14,8 @@ module Api
             end
 
             def create
-                if @car.save(car_params)
+                @car = Car.new(car_params)
+                if @car.save
                     render json: @car
                 else
                     render json: { error: @car.errors.messages }, status: 422
