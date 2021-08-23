@@ -22,6 +22,7 @@ module Api
             end
 
             def update
+                @car = Car.find(params[:id])
                 if @car.update(car_params)
                     render json: @car
                 else
@@ -30,6 +31,7 @@ module Api
             end
 
             def destroy
+                @car = Car.find(params[:id])
                 if @car.destroy
                     head: :no_content
                 else
