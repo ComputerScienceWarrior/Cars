@@ -10,4 +10,6 @@ Rails.application.routes.draw do
       resources :cars, only: [:index, :show]
     end
   end
+
+  get '*path', to: 'static#home'
 end
