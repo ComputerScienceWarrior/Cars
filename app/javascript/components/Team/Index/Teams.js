@@ -18,6 +18,7 @@ const Teams = () => {
     const teamsList = teams.map(team =>{
         return (
             <Team
+                key={team.id}
                 name={team.name}
                 total_wins={team.total_wins}
                 trophies={team.trophies}
