@@ -1,13 +1,14 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import Cars from '../components/Car/Cars'
-import Car from './Car/Car'
+import Cars from '../components/Car/Index/Cars'
+import Teams from '../components/Team/Index/Teams'
 
 const App = () => {
     return(
         <Switch>
-            <Route exact path="/" component={Cars}/>
-            {/* <Route exact path="/cars/:id/" component={Car}/> */}
+            <Route exact path="/" component={Teams}/> {/*this will change to a main screen form or something similar */}
+            <Route exact path="/cars/" component={Cars}/> {/* Index Route */}
+            <Route exact path="/teams/" component={Teams}/> {/* Index Route */}
         </Switch>
     )
 }
