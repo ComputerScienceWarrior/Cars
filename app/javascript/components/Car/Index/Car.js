@@ -4,7 +4,8 @@ import {BrowserRouter as Browser, Link} from 'react-router-dom'
 const Car = (props) => {
     return (
         <section>
-            <Link to={`/cars/${props.id}`}>{props.name}</Link>
+            <h2><b>{props.name}</b> Lv.{props.level}</h2>
+            <p>Team Name: <Link to={`/teams/${props.team_id}`}><b>{props.team_name}</b></Link></p>
             <p><b>Wins:</b>{props.wins}</p>
             <p><b>Losses:</b> {props.losses}</p>
             <p><b>Rank: </b>{props.rank}</p>
