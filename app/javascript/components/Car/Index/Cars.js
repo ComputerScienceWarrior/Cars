@@ -18,6 +18,7 @@ const Cars = () => {
     const carsList = cars.map(car =>{
         return (
             <Car
+                id={car.id}
                 key={car.id}
                 name={car.name}
                 wins={car.wins}
