@@ -4,11 +4,11 @@ const Car = (props) => {
     return (
         <section>
             <h2>{props.name}</h2>
-            <p>{props.wins}</p>
-            <p>{props.losses}</p>
-            <p>{props.rank}</p>
-            <p>{props.speed}</p>
-            <p>{props.attack_power}</p>
+            <p><b>Wins:</b>{props.wins}</p>
+            <p><b>Losses:</b> {props.losses}</p>
+            <p><b>Rank: </b>{props.rank}</p>
+            <p><b>Speed: </b>{props.speed}</p>
+            <p><b>Attack:</b> {props.attack_power}</p>
         </section>
     )
 }
